@@ -1,0 +1,62 @@
+Requirements:
+  Inputs for User first and last name
+  Check if the string is great than >20 characters and give a warning – but do not continue the program if invalid
+  Inputs for User badge number
+  Check if badge number is valid and 3 digits– but do not continue the program if invalid
+
+Butttons and forms: 
+  https://www.w3schools.com/js/js_input_examples.asp
+
+submit form: 
+  https://www.w3schools.com/js/tryit.asp?filename=tryjs_form_submit
+  
+Strings methods
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+String length validation
+  https://www.w3spoint.com/string-length-validation-javascript-js
+  
+Space in the string validation
+  https://stackoverflow.com/questions/17616624/detect-if-string-contains-any-spaces
+ 
+CODE SO FAR
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script> 
+
+function stringLengthCheck(name, maxlength)
+{
+//	var mnlen = minlength;
+	var mxlen = maxlength;
+ 
+if(name.value.length> mxlen)
+	{ 
+		alert("Name should be no more than " +mxlen+ " characters.");
+
+		return false;
+}
+
+else
+
+	{ 
+		return true;
+}
+
+}    
+
+</script> 
+
+</head>
+<body>
+<div class="mail">
+<h2>JavaScript String Length Validation</h2>
+<form name="form1" action="#"> 
+Name: <input type='text' name='name'/></br></br>
+<input type="submit" name="submit" value="Submit" 
+onclick="stringLengthCheck(document.form1.name, 20)"/>
+</form>
+</div>
+</body>
+</html>
