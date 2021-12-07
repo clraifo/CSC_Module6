@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script language="JavaScript">
+        function showInput() {
+            document.getElementById('display').innerHTML =
+                document.getElementById("name1").value;
+        }
+
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--COUNTDOWN TIMER BEGINS-->
+    
+    <!--COUNTDOWN TIMER ENDS-->
+</head>
+
+<body style="background-color:rgb(182, 192, 238);">
+
+    <form id="form"><b>Log in to proceed</b>
+
+        <div>
+
+            <label for="name">First Name</label>
+            <input type="text" name="name1" id="name1" placeholder="first name" required>
+        </div>
+
+        <div>
+
+            <label for="name">Last Name</label>
+            <input type="text" name="name2" id="name2" placeholder="last name" required>
+        </div>
+
+        <div>
+            <label for="password">PIN</label>
+            <input type="password" name="password" id="password" required>
+
+        </div>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <label>Your input: </label>
+    <p><span id='display'></span></p>
+
+
+    <h1>Countdown to Blast Off!</h1>
+    <p>This application will start the countdown</p>
+    <h2>Countdown</h2>
+    <p id="DisplayCountdown">10</p>
+
+    <script>
+
+        const form = document.getElementById("form");
+        console.log(form);
+        form.addEventListener('submit', (e) => {
+            const name1 = document.getElementById("name1").value;
+            const name2 = document.getElementById("name2").value;
+            const password = document.getElementById("password").value;
+
+            let isvalid = true;
+
+            const fullname = name1 + " " + name2;
+
+            if (fullname.length > 20) {
+                isvalid = false;
+            }
+            if (password.length > 3) {
+                isvalid = false;
+            }
+            if (isvalid) {
+                document.getElementById("display").innerHTML = fullname;
+                counter(10);
+            }
+            else {
+                document.getElementById("display").innerHTML = "Login Incorrect, Try again";
+            }
+            e.preventDefault();
+        });
+
+        function counter(n) {
+            (function loop() {
+                console.log(n);
+                if (n > 5) {
+                    document.getElementById("DisplayCountdown").innerHTML = n;
+                }
+                else {
+                    document.getElementById("DisplayCountdown").innerHTML = "Warning Less than ½ way to launch, time left =   " + n;
+                }
+                if (n--) {
+                    setTimeout(loop, 1000);
+                }
+                if (n < 0) {
+                    document.getElementById("DisplayCountdown").innerHTML = "BLASTOFF!!!"
+                }
+            })();
+        }
+
+    </script>
+</body>
+
+</html>
